@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MagicSquareController">
+   <left>
+      <VBox maxWidth="-Infinity" spacing="8.0" BorderPane.alignment="CENTER">
+         <children>
+            <FlowPane prefHeight="0.0" prefWidth="0.0">
+               <children>
+                  <Label text="Order:  " />
+                  <TextField fx:id="orderTextField" prefHeight="25.0" prefWidth="43.0" />
+               </children>
+            </FlowPane>
+            <TitledPane text="Initial edge">
+               <content>
+                  <VBox spacing="8.0">
+                     <children>
+                        <RadioButton fx:id="firstRow" mnemonicParsing="false" onAction="#edgeSelected" text="First row">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="edgeToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="firstColumn" mnemonicParsing="false" onAction="#edgeSelected" text="First column" toggleGroup="$edgeToggleGroup" />
+                        <RadioButton fx:id="lastRow" mnemonicParsing="false" onAction="#edgeSelected" text="Last row" toggleGroup="$edgeToggleGroup" />
+                        <RadioButton fx:id="lastColumn" mnemonicParsing="false" onAction="#edgeSelected" text="Last column" toggleGroup="$edgeToggleGroup" />
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+            <TitledPane text="Direction">
+               <content>
+                  <VBox spacing="8.0">
+                     <children>
+                        <RadioButton fx:id="no" mnemonicParsing="false" onAction="#dirSelected" text="NO">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="dirToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="ne" mnemonicParsing="false" onAction="#dirSelected" text="NE" toggleGroup="$dirToggleGroup" />
+                        <RadioButton fx:id="so" mnemonicParsing="false" onAction="#dirSelected" text="SO" toggleGroup="$dirToggleGroup" />
+                        <RadioButton fx:id="se" mnemonicParsing="false" onAction="#dirSelected" text="SE" toggleGroup="$dirToggleGroup" />
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+            <Button fx:id="generateButton" mnemonicParsing="false" onAction="#generateButtonPressed" text="Generate" />
+            <Label fx:id="messageLabel" textFill="#f0310a">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </VBox>
+   </left>
+   <padding>
+      <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+   </padding>
+   <center>
+      <ScrollPane fx:id="viewPane" hbarPolicy="ALWAYS" prefWidth="300.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
